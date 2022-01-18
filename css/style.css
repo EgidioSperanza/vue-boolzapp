@@ -30,7 +30,7 @@ img.avatar {
 }
 /* END RESIZING USER & CONTACTS AVATAR */
 /* START ICONS COMMAND POSITION */
-.ico-cmd > i {
+.ico-cmd > i, .emoticon > i, .record-audio > i {
   margin-left: 10px;
   color: rgb(90, 87, 87);
 }
@@ -47,7 +47,7 @@ img.avatar {
   height: 150px;
 }
 .bkg-body {
-  background-color: #dadbd4;
+  background-color: #eff1e5;
   height: calc(100vh - 150px);
 }
 /* END BACKGROUND APP */
@@ -183,7 +183,7 @@ img.avatar {
 }
 .sent > p,
 .received > p {
-    padding-bottom: 3px;
+  padding-bottom: 3px;
 }
 .sent > span,
 .received > span {
@@ -193,5 +193,30 @@ img.avatar {
 }
 /* END MESSAGE SENT OR RECEIVED */
 /* END CURRENT CHAT MESSAGE HISTORY */
+/* START WRITE & EMOTICON */
+.write {
+  width: 100%;
+  height: 80px;
+  background-color: #dadbd4;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.emoticon, .record-audio{
+    font-size: 40px;
+}
+.write-message{
+    width: 80%;
+}
+.write-message > input{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: none;
+    border: none;
+}
+/* END WRITE & EMOTICON */
 /* END CHAT PANEL */
 /* END MAIN WINDOW APP*/
