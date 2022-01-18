@@ -114,6 +114,13 @@ img.avatar {
 .opt-text {
   margin-left: 10px;
 }
+.opt-text > p{
+font-weight: bold;
+}
+.opt-text > span{
+    text-decoration: underline;
+    color: rgb(88, 77, 156);
+}
 /* END NOTIFICATIONS */
 /* START SEARCH CHAT */
 .search-chat {
