@@ -39,7 +39,7 @@
                 />
                 <span>{{userData.name}}</span>
               </div>
-              <div class="user-cmd">
+              <div class="user-cmd ico-cmd">
                 <i class="fas fa-circle-notch"></i>
                 <i class="fas fa-comment-alt"></i>
                 <i class="fas fa-ellipsis-v"></i>
@@ -64,20 +64,50 @@
             </div>
             <!-- CONTACTS LIST -->
             <div class="contacts-list">
-                <div v-for="contact in contacts">
-                    <div class="contact-info">
-                        <img
-                          class="avatar"
-                          :src="imageLocation+contact.avatar+imageFormat"
-                          :alt="contact.name"
-                        />
-                        <span>{{userData.name}}</span>
-                      </div>
+              <div v-for="contact in contacts">
+                <div class="contact-info">
+                  <img
+                    class="avatar"
+                    :src="imageLocation+contact.avatar+imageFormat"
+                    :alt="contact.name"
+                  />
+                  <span>{{userData.name}}</span>
                 </div>
+              </div>
             </div>
           </div>
           <!-- CHAT PANEL -->
-          <div class="chat-panel"></div>
+          <div class="chat-panel">
+            <!-- CONTACT INFO -->
+            <div class="current-contact">
+              <div class="current-contact-info">
+                <!-- TEMPORANEAMENTE PRENDO IL PRIMO DELL'ARRAY -->
+                <img
+                  class="avatar"
+                  :src="imageLocation+contacts[0].avatar+imageFormat"
+                  :alt="contacts[0].name"
+                />
+                <span>{{contacts[0].name}}</span>
+              </div>
+              <div class="user-cmd ico-cmd">
+                <i class="fas fa-circle-notch"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+            <!-- CURRENT CONTACT CHAT MESSAGES -->
+            <div class="current-chat">
+              <!-- PRENDO TEMPORANEAMENTE I MESSAGGI DELLA PRIMA CHAT NELL'ARRAY -->
+              <div v-for="(message, index) in contacts[0].messages">
+                <div class="row">
+                  <div :class="message.status==='sent' ? 'sent': 'received'">
+                    <p>{{message.text}}</p>
+                    <span>{{message.date}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

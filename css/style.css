@@ -18,20 +18,37 @@ html {
   clear: both;
 }
 /* END FLOAT UTILITY */
+/* START FORMAT SPAN */
+span:not(.opt-text > span) {
+  margin-left: 10px;
+}
+/* END FORMAT SPAN */
 /* START RESIZING USER & CONTACTS AVATAR */
 img.avatar {
   height: 100%;
   border-radius: 100%;
 }
 /* END RESIZING USER & CONTACTS AVATAR */
+/* START ICONS COMMAND POSITION */
+.ico-cmd > i {
+  margin-left: 10px;
+  color: rgb(90, 87, 87);
+}
+.ico-cmd {
+  padding-right: 10px;
+}
+/* END ICONS COMMAND POSITION */
 /* START BACKGROUND APP */
+.boolzapp-bkg {
+  height: 100%;
+}
 .bkg-head {
   background-color: #429588;
   height: 150px;
 }
 .bkg-body {
-  background-color: #dbdbd4;
-  height: calc(100% - 150px);
+  background-color: #dadbd4;
+  height: calc(100vh - 150px);
 }
 /* END BACKGROUND APP */
 /* START MAIN WINDOW APP*/
@@ -52,10 +69,12 @@ img.avatar {
   max-width: 50%;
   height: 100%;
   float: left;
-  background-color: #FFF;
+  border-right: 1px solid #c0c0c0;
+  background-color: #fff;
 }
 /* START USER INFO & CMD */
-.user {
+.user,
+.current-contact {
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -68,14 +87,8 @@ img.avatar {
   display: flex;
   align-items: center;
 }
-.user-info > span {
-  margin-left: 10px;
-}
 .user-cmd {
   margin-right: 10px;
-}
-.user-cmd > i {
-  margin-left: 10px;
 }
 /* END USER INFO & CMD */
 /* START NOTIFICATIONS */
@@ -102,41 +115,83 @@ img.avatar {
 /* END NOTIFICATIONS */
 /* START SEARCH CHAT */
 .search-chat {
+  height: 40px;
   margin: 5px;
   padding: 10px;
   border: 1px solid #c0c0c0;
   display: flex;
   align-items: center;
 }
-.search-icon{
-    width: 60px;
-    text-align: center;
-    font-size: 25px;
+.search-icon {
+  width: 60px;
+  text-align: center;
+  font-size: 25px;
 }
 /* END SEARCH CHAT */
 /* START CONTACTS LIST */
-.contact-info {
-    height: 80px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
+.contacts-list {
+  width: calc(100% - 10px);
+  height: calc(100% - 210px);
+  border-top: 1px solid #c0c0c0;
+  border-right: 1px solid #c0c0c0;
 }
-.contact-info:hover{
-    background-color: #dbdbd4;
+.contact-info,
+.current-contact-info {
+  height: 80px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
-.contact-info > span{
-    margin-left: 10px;
+.contact-info:hover {
+  background-color: #dbdbd4;
 }
 /* END CONTACTS LIST */
 /* END USER PANEL */
 /* START CHAT PANEL */
 .chat-panel {
-  width: calc(100% - 405px);
-  margin-left: 5px;
+  width: calc(100% - 400px);
   min-width: calc(50% - 5px);
   height: 100%;
   float: left;
-  background-color: red;
 }
+/* START CONTACT-GROUP INFO & CHAT CMD */
+/* current.contact = user */
+/* current-contact-info = contact-info */
+/* END CONTACT-GROUP INFO & CHAT CMD */
+/* START CURRENT CHAT MESSAGE HISTORY */
+.current-chat {
+  width: 100%;
+  height: calc(100% - 160px);
+  background-image: url("../img/mine.jpg");
+  padding: 20px;
+}
+/* START MESSAGE SENT OR RECEIVED */
+.sent {
+  float: right;
+  background-color: #ddf8c0;
+}
+.received {
+  float: left;
+  background-color: #fff;
+}
+.sent,
+.received {
+  min-width: 30%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.sent > p,
+.received > p {
+    padding-bottom: 3px;
+}
+.sent > span,
+.received > span {
+  font-size: 15px;
+  color: #c0c0c0;
+  float: right;
+}
+/* END MESSAGE SENT OR RECEIVED */
+/* END CURRENT CHAT MESSAGE HISTORY */
 /* END CHAT PANEL */
 /* END MAIN WINDOW APP*/
