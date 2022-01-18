@@ -22,41 +22,45 @@
       <div class="head"></div>
       <div class="body"></div>
       <div class="bool-zapp">
-        <!-- zona di interazione utente -->
-        <div class="user-panel">
-          <div class="user">
-            <img
-              class="avatar"
-              :src="imageLocation+userData.avatar+imageFormat"
-              :alt="userData.name"
-            />
-            <div class="user-cmd">
-              <i class="fas fa-circle-notch"></i>
-              <i class="fas fa-comment-alt"></i>
-              <i class="fas fa-ellipsis-v"></i>
-            </div>
-          </div>
-          <div class="notifications"></div>
-          <div class="search-chat">
-            <i class="fas fa-search"></i>
-            <span>Cerca o inizia una nuova chat</span>
-          </div>
-          <div class="contacts-group">
-            <div v-for="(contact, index) in contacts" class="contact">
-                <img
+        <div class="row">
+          <!-- zona di interazione utente -->
+          <div class="user-panel fl">
+            <div class="user">
+              <img
                 class="avatar"
-                :src="imageLocation+contact.avatar+imageFormat"
-                :alt="contact.name"
+                :src="imageLocation+userData.avatar+imageFormat"
+                :alt="userData.name"
               />
+              <div class="user-cmd">
+                <i class="fas fa-circle-notch"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+            <div class="notifications"></div>
+            <div class="search-chat">
+              <i class="fas fa-search"></i>
+              <span>Cerca o inizia una nuova chat</span>
+            </div>
+            <div class="contacts-group">
+              <div v-for="(contact, index) in contacts" class="contact">
+                <img
+                  class="avatar"
+                  :src="imageLocation+contact.avatar+imageFormat"
+                  :alt="contact.name"
+                />
                 <span>{{contact.name}}</span>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- qui è dove si legge scrive la chat -->
-        <div class="contact-chat">
-          <div class="contact"></div>
-          <div class="read-chat"></div>
-          <div class="write-chat"></div>
+          <!-- qui è dove si legge scrive la chat -->
+          <div class="contact-chat fl">
+            <div class="current-contact">
+
+            </div>
+            <div class="read-chat"></div>
+            <div class="write-chat"></div>
+          </div>
         </div>
       </div>
     </div>

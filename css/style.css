@@ -34,11 +34,25 @@
   z-index: 1000;
 }
 
+.row::after{
+    display: table;
+    content: '';
+    clear: both;
+}
+
+.fl{
+    float: left;
+}
 .user-panel {
   width: 400px;
   max-width: 50%;
 }
-.user {
+.contact-chat{
+    width: calc(100% - 400px);
+    background-color: red;
+    min-width: 50%;
+}
+.user, .current-contact {
   padding: 10px;
   height: 80px;
   display: flex;
