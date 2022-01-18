@@ -60,7 +60,7 @@
               <div class="search-icon">
                 <i class="fas fa-search"></i>
               </div>
-              <span>Cerca o inizia una nuova chat</span>
+              <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
             <!-- CONTACTS LIST -->
             <div class="contacts-list">
@@ -71,7 +71,7 @@
                     :src="imageLocation+contact.avatar+imageFormat"
                     :alt="contact.name"
                   />
-                  <span>{{userData.name}}</span>
+                  <span>{{contact.name}}</span>
                 </div>
               </div>
             </div>

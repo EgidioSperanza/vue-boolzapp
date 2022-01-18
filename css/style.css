@@ -30,7 +30,9 @@ img.avatar {
 }
 /* END RESIZING USER & CONTACTS AVATAR */
 /* START ICONS COMMAND POSITION */
-.ico-cmd > i, .emoticon > i, .record-audio > i {
+.ico-cmd > i,
+.emoticon > i,
+.record-audio > i {
   margin-left: 10px;
   color: rgb(90, 87, 87);
 }
@@ -115,6 +117,7 @@ img.avatar {
 /* END NOTIFICATIONS */
 /* START SEARCH CHAT */
 .search-chat {
+  width: calc(100% - 15px);
   height: 40px;
   margin: 5px;
   padding: 10px;
@@ -126,6 +129,14 @@ img.avatar {
   width: 60px;
   text-align: center;
   font-size: 25px;
+}
+.search-chat > input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+}
+.search-chat > input:focus {
+  outline: none !important;
 }
 /* END SEARCH CHAT */
 /* START CONTACTS LIST */
@@ -202,20 +213,21 @@ img.avatar {
   justify-content: space-around;
   align-items: center;
 }
-.emoticon, .record-audio{
-    font-size: 40px;
+.emoticon,
+.record-audio {
+  font-size: 40px;
 }
-.write-message{
-    width: 80%;
+.write-message {
+  width: 80%;
 }
-.write-message > input{
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: none;
-    border: none;
+.write-message > input {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
 }
 /* END WRITE & EMOTICON */
 /* END CHAT PANEL */
