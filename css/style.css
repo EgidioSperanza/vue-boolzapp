@@ -38,7 +38,7 @@
   width: 400px;
   max-width: 50%;
 }
-.user {
+.user, .contact {
   padding: 10px;
   height: 80px;
   display: flex;

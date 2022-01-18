@@ -42,8 +42,13 @@
             <span>Cerca o inizia una nuova chat</span>
           </div>
           <div class="contacts-group">
-            <div v-for="(contact, index) in contacts">
-                
+            <div v-for="(contact, index) in contacts" class="contact">
+                <img
+                class="avatar"
+                :src="imageLocation+contact.avatar+imageFormat"
+                :alt="contact.name"
+              />
+  
             </div>
           </div>
         </div>
