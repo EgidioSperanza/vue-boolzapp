@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolzapp - a (not very) innovative messaging platform</title>
+    <!-- ----FONT---- -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <!-- ----CSS---- -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- ----CND VUE---- -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="head"></div>
+      <div class="body"></div>
+      <div class="boolzapp">
+        <!-- zona di interazione utente -->
+        <div class="user-panel">
+          <div class="user"></div>
+          <div class="notifications">
+            <!-- qui ci va anche il search -->
+          </div>
+          <div class="contacts">
+            <!-- qui ci va il v-for dei contatti -->
+          </div>
+        </div>
+        <!-- qui è dove si legge scrive la chat -->
+        <div class="contact-chat">
+            <div class="contact"></div>
+            <div class="read-chat"></div>
+            <div class="write-chat"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
