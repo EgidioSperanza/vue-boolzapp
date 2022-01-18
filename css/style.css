@@ -3,83 +3,140 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-#app {
+body,
+html {
+  height: 100%;
   position: relative;
-  display: flex;
 }
-
-.head {
-  width: 100%;
+/* START FLOAT UTILITY */
+.row {
+  height: 100%;
+}
+.row::after {
+  display: table;
+  content: "";
+  clear: both;
+}
+/* END FLOAT UTILITY */
+/* START RESIZING USER & CONTACTS AVATAR */
+img.avatar {
+  height: 100%;
+  border-radius: 100%;
+}
+/* END RESIZING USER & CONTACTS AVATAR */
+/* START BACKGROUND APP */
+.bkg-head {
+  background-color: #429588;
   height: 150px;
-  background-color: #009688;
-  position: absolute;
-  top: 0;
 }
-
-.body {
-  width: 100%;
-  height: calc(100vh - 150px);
-  background-color: #dadbd4;
-  position: absolute;
-  top: 150px;
+.bkg-body {
+  background-color: #dbdbd4;
+  height: calc(100% - 150px);
 }
-
-.bool-zapp {
-  background-color: #ededed;
+/* END BACKGROUND APP */
+/* START MAIN WINDOW APP*/
+.boolzapp-app {
+  position: absolute;
   width: 100%;
   max-width: 1400px;
-  min-height: 90vh;
-  margin: 5vh auto;
-  z-index: 1000;
+  height: 100%;
+  max-height: 800px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
 }
-
-.row::after{
-    display: table;
-    content: '';
-    clear: both;
-}
-
-.fl{
-    float: left;
-}
+/* START USER PANEL */
 .user-panel {
   width: 400px;
   max-width: 50%;
+  height: 100%;
+  float: left;
+  background-color: #FFF;
 }
-.contact-chat{
-    width: calc(100% - 400px);
-    background-color: red;
-    min-width: 50%;
-}
-.user, .current-contact {
-  padding: 10px;
+/* START USER INFO & CMD */
+.user {
   height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #dbdbd4;
 }
-.avatar {
-  border-radius: 100%;
+.user-info {
   height: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
-
-.user-cmd > i {
+.user-info > span {
+  margin-left: 10px;
+}
+.user-cmd {
   margin-right: 10px;
 }
-
+.user-cmd > i {
+  margin-left: 10px;
+}
+/* END USER INFO & CMD */
+/* START NOTIFICATIONS */
 .notifications {
-  height: 100px;
-  background-color: #9fd8f9;
+  height: 80px;
+  background-color: #9fd8f8;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
-
-.search-chat{
-    padding: 10px;
+.opt-bell {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: #fff;
+  text-align: center;
+  line-height: 60px;
+  font-size: 25px;
+  color: #9fd8f8;
 }
-
-.contact {
-    padding: 10px;
+.opt-text {
+  margin-left: 10px;
+}
+/* END NOTIFICATIONS */
+/* START SEARCH CHAT */
+.search-chat {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #c0c0c0;
+  display: flex;
+  align-items: center;
+}
+.search-icon{
+    width: 60px;
+    text-align: center;
+    font-size: 25px;
+}
+/* END SEARCH CHAT */
+/* START CONTACTS LIST */
+.contact-info {
     height: 80px;
+    padding: 10px;
     display: flex;
     align-items: center;
-  }
+}
+.contact-info:hover{
+    background-color: #dbdbd4;
+}
+.contact-info > span{
+    margin-left: 10px;
+}
+/* END CONTACTS LIST */
+/* END USER PANEL */
+/* START CHAT PANEL */
+.chat-panel {
+  width: calc(100% - 405px);
+  margin-left: 5px;
+  min-width: calc(50% - 5px);
+  height: 100%;
+  float: left;
+  background-color: red;
+}
+/* END CHAT PANEL */
+/* END MAIN WINDOW APP*/

@@ -19,52 +19,68 @@
   </head>
   <body>
     <div id="app">
-      <div class="head"></div>
-      <div class="body"></div>
-      <div class="bool-zapp">
+      <!-- BACKGROUND -->
+      <div class="boolzapp-bkg">
+        <div class="bkg-head"></div>
+        <div class="bkg-body"></div>
+      </div>
+      <!-- MAIN WINDOW -->
+      <div class="boolzapp-app">
         <div class="row">
-          <!-- zona di interazione utente -->
-          <div class="user-panel fl">
+          <!-- USER PANEL -->
+          <div class="user-panel">
+            <!-- USER INFO & CMD -->
             <div class="user">
-              <img
-                class="avatar"
-                :src="imageLocation+userData.avatar+imageFormat"
-                :alt="userData.name"
-              />
+              <div class="user-info">
+                <img
+                  class="avatar"
+                  :src="imageLocation+userData.avatar+imageFormat"
+                  :alt="userData.name"
+                />
+                <span>{{userData.name}}</span>
+              </div>
               <div class="user-cmd">
                 <i class="fas fa-circle-notch"></i>
                 <i class="fas fa-comment-alt"></i>
                 <i class="fas fa-ellipsis-v"></i>
               </div>
             </div>
-            <div class="notifications"></div>
-            <div class="search-chat">
-              <i class="fas fa-search"></i>
-              <span>Cerca o inizia una nuova chat</span>
-            </div>
-            <div class="contacts-group">
-              <div v-for="(contact, index) in contacts" class="contact">
-                <img
-                  class="avatar"
-                  :src="imageLocation+contact.avatar+imageFormat"
-                  :alt="contact.name"
-                />
-                <span>{{contact.name}}</span>
+            <!-- NOTIFICATIONS -->
+            <div class="notifications">
+              <div class="opt-bell">
+                <i class="fas fa-bell-slash"></i>
+              </div>
+              <div class="opt-text">
+                <p>Ricevi notifiche di nuovi messagi</p>
+                <span>Attiva notifiche desktop</span>
               </div>
             </div>
-          </div>
-          <!-- qui è dove si legge scrive la chat -->
-          <div class="contact-chat fl">
-            <div class="current-contact">
-
+            <!-- SEARCH CHAT -->
+            <div class="search-chat">
+              <div class="search-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <span>Cerca o inizia una nuova chat</span>
             </div>
-            <div class="read-chat"></div>
-            <div class="write-chat"></div>
+            <!-- CONTACTS LIST -->
+            <div class="contacts-list">
+                <div v-for="contact in contacts">
+                    <div class="contact-info">
+                        <img
+                          class="avatar"
+                          :src="imageLocation+contact.avatar+imageFormat"
+                          :alt="contact.name"
+                        />
+                        <span>{{userData.name}}</span>
+                      </div>
+                </div>
+            </div>
           </div>
+          <!-- CHAT PANEL -->
+          <div class="chat-panel"></div>
         </div>
       </div>
     </div>
-
     <script src="./js/main.js"></script>
   </body>
 </html>
