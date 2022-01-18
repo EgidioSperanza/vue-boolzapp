@@ -38,7 +38,7 @@
   width: 400px;
   max-width: 50%;
 }
-.user, .contact {
+.user {
   padding: 10px;
   height: 80px;
   display: flex;
@@ -62,3 +62,10 @@
 .search-chat{
     padding: 10px;
 }
+
+.contact {
+    padding: 10px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
