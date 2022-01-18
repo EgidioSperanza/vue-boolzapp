@@ -4,32 +4,61 @@
   box-sizing: border-box;
 }
 
-#app{
-    position: relative;
-    display: flex;
+#app {
+  position: relative;
+  display: flex;
 }
 
-.head{
-    width: 100%;
-    height: 150px;
-    background-color: #009688;
-    position: absolute;
-    top: 0;
+.head {
+  width: 100%;
+  height: 150px;
+  background-color: #009688;
+  position: absolute;
+  top: 0;
 }
 
-.body{
-    width: 100%;
-    height: calc(100vh - 150px);
-    background-color: #dadbd4;
-    position: absolute;
-    top: 150px;
+.body {
+  width: 100%;
+  height: calc(100vh - 150px);
+  background-color: #dadbd4;
+  position: absolute;
+  top: 150px;
 }
 
-.boolzapp{
-    background-color: #ededed;
-    width: 100%;
-    max-width: 1400px;
-    min-height: 90vh;
-    margin: 5vh auto;
-    z-index: 1000;
+.bool-zapp {
+  background-color: #ededed;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 90vh;
+  margin: 5vh auto;
+  z-index: 1000;
+}
+
+.user-panel {
+  width: 400px;
+  max-width: 50%;
+}
+.user {
+  padding: 10px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.avatar {
+  border-radius: 100%;
+  height: 100%;
+}
+
+.user-cmd > i {
+  margin-right: 10px;
+}
+
+.notifications {
+  height: 100px;
+  background-color: #9fd8f9;
+}
+
+.search-chat{
+    padding: 10px;
 }

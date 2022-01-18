@@ -46,7 +46,6 @@ new Vue({
           },
         ],
       },
-
       {
         name: "Samuele",
         avatar: "_3",
@@ -87,6 +86,13 @@ new Vue({
         ],
       },
     ],
+    userData:{
+        name:'John Doe',
+        avatar: "_8",
+        visible: true,
+    },
+    imageLocation:"./img/avatar",
+    imageFormat:".jpg",
   },
   methods: {},
 });
