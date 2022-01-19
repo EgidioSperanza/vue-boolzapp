@@ -67,14 +67,28 @@
             <!-- SEARCH CHAT -->
             <div class="search-chat">
               <div class="search-icon">
-                <i :class="{'focus-search' : searchContacts!==''}" class="fas fa-search"></i>
+                <i
+                  :class="{'focus-search' : searchContacts!==''}"
+                  class="fas fa-search"
+                ></i>
               </div>
-              <input v-model="searchContacts" type="text" placeholder="Cerca o inizia una nuova chat" />
+              <input
+                v-model="searchContacts"
+                type="text"
+                placeholder="Cerca o inizia una nuova chat"
+              />
             </div>
             <!-- CONTACTS LIST -->
             <div class="contacts-list">
-              <div v-if="searchContacts===''" v-for="(contact, index) in contacts">
-                <div @click="userData.currentChat=index" class="contact-info" :class="{'current-interlocutor' : userData.currentChat===index}">
+              <div
+                v-if="searchContacts===''"
+                v-for="(contact, index) in contacts"
+              >
+                <div
+                  @click="userData.currentChat=index"
+                  class="contact-info"
+                  :class="{'current-interlocutor' : userData.currentChat===index}"
+                >
                   <img
                     class="avatar"
                     :src="imageLocation+contact.avatar+imageFormat"
@@ -83,6 +97,7 @@
                   <span>{{contact.name}}</span>
                 </div>
               </div>
+              <div>{{filterContacts()}}</div>
             </div>
           </div>
           <!-- CHAT PANEL -->
@@ -96,8 +111,8 @@
                   :alt="contacts[userData.currentChat].name"
                 />
                 <div>
-                    <span>{{contacts[userData.currentChat].name}}</span>
-                    <span class="last-access">{{lastAccess()}}</span>
+                  <span>{{contacts[userData.currentChat].name}}</span>
+                  <span class="last-access">{{lastAccess()}}</span>
                 </div>
               </div>
               <div class="user-cmd ico-cmd">
@@ -108,7 +123,9 @@
             </div>
             <!-- CURRENT CONTACT CHAT MESSAGES -->
             <div class="current-chat">
-              <div v-for="(message, index) in contacts[userData.currentChat].messages">
+              <div
+                v-for="(message, index) in contacts[userData.currentChat].messages"
+              >
                 <div class="row">
                   <div :class="message.status==='sent' ? 'sent': 'received'">
                     <p>{{message.text}}</p>
@@ -123,7 +140,12 @@
                 <i class="far fa-smile"></i>
               </div>
               <div class="write-message">
-                <input v-model="newMessage" @keyup.enter="sendMessage" type="text" placeholder="Scrivi un messaggio" />
+                <input
+                  v-model="newMessage"
+                  @keyup.enter="sendMessage"
+                  type="text"
+                  placeholder="Scrivi un messaggio"
+                />
               </div>
               <div class="record-audio">
                 <i class="fas fa-microphone"></i>

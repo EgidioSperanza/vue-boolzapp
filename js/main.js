@@ -91,26 +91,35 @@ new Vue({
       avatar: "_8",
       visible: true,
       notifications: false,
-      currentChat:0
+      currentChat: 0,
     },
     imageLocation: "./img/avatar",
     imageFormat: ".jpg",
-    newMessage:"",
-    searchContacts:""
+    newMessage: "",
+    searchContacts: "",
+    filteredContacts: [],
   },
   methods: {
     notificationOpt: function () {
-      this.userData.notifications=!this.userData.notifications;
+      this.userData.notifications = !this.userData.notifications;
     },
-    sendMessage: function (){
-      this.contacts[this.userData.currentChat].messages.push({date:`${dayjs().format('DD/MM/YYYY HH:mm:ss')}`, text:this.newMessage,status:"sent" })
-      this.newMessage="";
-      setTimeout( () => {
-        this.contacts[this.userData.currentChat].messages.push({date:`${dayjs().format('DD/MM/YYYY HH:mm:ss')}`, text:"ok",status:"received" })
+    sendMessage: function () {
+      this.contacts[this.userData.currentChat].messages.push({
+        date: `${dayjs().format("DD/MM/YYYY HH:mm:ss")}`,
+        text: this.newMessage,
+        status: "sent",
+      });
+      this.newMessage = "";
+      setTimeout(() => {
+        this.contacts[this.userData.currentChat].messages.push({
+          date: `${dayjs().format("DD/MM/YYYY HH:mm:ss")}`,
+          text: "ok",
+          status: "received",
+        });
       }, 1000);
     },
-    lastAccess: function (){
-      return `Ultimo accesso alle ${dayjs().format('HH:mm')}`
-    }
-  }
+    lastAccess: function () {
+      return `Ultimo accesso alle ${dayjs().format("HH:mm")}`;
+    },
+  },
 });

@@ -29,9 +29,9 @@ html {
 span:not(.opt-text > span) {
   margin-left: 10px;
 }
-span.last-access{
-    display: block;
-    font-size: 12px;
+span.last-access {
+  display: block;
+  font-size: 12px;
 }
 /* END FORMAT SPAN */
 /* START RESIZING USER & CONTACTS AVATAR */
@@ -148,8 +148,8 @@ img.avatar {
   text-align: center;
   font-size: 25px;
 }
-.focus-search{
-    color: #9fd8f8;
+.focus-search {
+  color: #9fd8f8;
 }
 .search-chat > input {
   width: 100%;
@@ -168,14 +168,14 @@ img.avatar {
   border-right: 1px solid #c0c0c0;
 }
 .contact-info,
-.current-contact-info
- {
+.current-contact-info {
   height: 80px;
   padding: 10px;
   display: flex;
   align-items: center;
 }
-.contact-info:hover, .current-interlocutor {
+.contact-info:hover,
+.current-interlocutor {
   background-color: #dbdbd4;
 }
 
