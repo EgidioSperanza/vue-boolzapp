@@ -166,6 +166,7 @@ img.avatar {
   height: calc(100% - 210px);
   border-top: 1px solid #c0c0c0;
   border-right: 1px solid #c0c0c0;
+  overflow: auto;
 }
 .contact-info,
 .current-contact-info {
@@ -198,6 +199,7 @@ img.avatar {
   height: calc(100% - 160px);
   background-image: url("../img/mine.jpg");
   padding: 20px;
+  overflow: auto;
 }
 /* START MESSAGE SENT OR RECEIVED */
 .sent {
@@ -227,6 +229,7 @@ img.avatar {
 .sent > p,
 .received > p {
   padding-bottom: 3px;
+  padding-right: 20px;
 }
 .sent > span,
 .received > span {
@@ -234,6 +237,9 @@ img.avatar {
   color: #c0c0c0;
   float: right;
 }
+/* START DELETE MESSAGE */
+
+/* END DELETE MESSAGE */
 /* END MESSAGE SENT OR RECEIVED */
 /* END CURRENT CHAT MESSAGE HISTORY */
 /* START WRITE & EMOTICON */

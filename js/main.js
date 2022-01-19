@@ -83,7 +83,48 @@ new Vue({
             text: "Si, ma preferirei andare al cinema",
             status: "received",
           },
+          {
+            date: "10/01/2022 18:30:55",
+            text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id debitis consequuntur deleniti vitae rerum fugit itaque nesciunt, dolore amet! Facere accusamus repudiandae labore incidunt ducimus corrupti nemo, quisquam ipsum impedit!",
+            status: "sent",
+          },
         ],
+      },
+      {
+        name: "Dario",
+        avatar: "_4",
+        visible: true,
+        messages: []
+      },
+      {
+        name: "Michele",
+        avatar: "_1",
+        visible: true,
+        messages: []
+      },
+      {
+        name: "Mario",
+        avatar: "_7",
+        visible: true,
+        messages: []
+      },
+      {
+        name: "Giovanna",
+        avatar: "_6",
+        visible: true,
+        messages: []
+      },
+      {
+        name: "Maria",
+        avatar: "_io",
+        visible: true,
+        messages: []
+      },
+      {
+        name: "Federico",
+        avatar: "_4",
+        visible: true,
+        messages: []
       },
     ],
     userData: {
@@ -97,7 +138,8 @@ new Vue({
     imageFormat: ".jpg",
     newMessage: "",
     searchContacts: "",
-    filteredContacts: "",
+    showDeleteModal: false,
+    targetDelete:null
   },
   methods: {
     notificationOpt: function () {
@@ -132,5 +174,17 @@ new Vue({
       }
       return false;
     },
+    deleteMessage: function (message, index){
+      this.showDeleteModal=false;
+      this.targetDelete=null;
+      if(message.status==='sent' && this.showDeleteModal===false){
+        this.showDeleteModal=!this.showDeleteModal;
+        this.targetDelete=index;
+      }
+      console.log(message.status)
+      console.log(this.showDeleteModal)
+      console.log(this.targetDelete)
+
+    }
   },
 });
