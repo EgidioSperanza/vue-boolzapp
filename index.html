@@ -113,6 +113,7 @@
                   <div :class="message.status==='sent' ? 'sent': 'received'">
                     <p>{{message.text}}</p>
                     <span>{{message.date}}</span>
+                    <i v-if="message.status==='sent'" class="fas fa-chevron-down"></i>
                   </div>
                 </div>
               </div>
