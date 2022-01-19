@@ -97,7 +97,7 @@ new Vue({
     imageFormat: ".jpg",
     newMessage: "",
     searchContacts: "",
-    filteredContacts: [],
+    filteredContacts:"",
   },
   methods: {
     notificationOpt: function () {
@@ -121,5 +121,5 @@ new Vue({
     lastAccess: function () {
       return `Ultimo accesso alle ${dayjs().format("HH:mm")}`;
     },
-  },
+ },
 });
