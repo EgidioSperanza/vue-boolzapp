@@ -91,6 +91,7 @@ new Vue({
       avatar: "_8",
       visible: true,
       notifications: false,
+      currentChat:0
     },
     imageLocation: "./img/avatar",
     imageFormat: ".jpg",

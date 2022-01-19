@@ -48,12 +48,18 @@
             <!-- NOTIFICATIONS -->
             <div class="notifications">
               <div class="opt-bell" @click="notificationOpt">
-                <i :class="[userData.notifications===true ? 'fas fa-bell' : 'fas fa-bell-slash']"></i>
+                <i
+                  :class="[userData.notifications===true ? 'fas fa-bell' : 'fas fa-bell-slash']"
+                ></i>
               </div>
               <div class="opt-text">
                 <p>Ricevi notifiche di nuovi messagi</p>
-                <span v-if="userData.notifications" @click="notificationOpt" >Disattiva notifiche desktop</span>
-                <span v-else @click="notificationOpt">Attiva notifiche desktop</span>
+                <span v-if="userData.notifications" @click="notificationOpt"
+                  >Disattiva notifiche desktop</span
+                >
+                <span v-else @click="notificationOpt"
+                  >Attiva notifiche desktop</span
+                >
               </div>
             </div>
             <!-- SEARCH CHAT -->
@@ -61,12 +67,12 @@
               <div class="search-icon">
                 <i class="fas fa-search"></i>
               </div>
-              <input type="text" placeholder="Cerca o inizia una nuova chat">
+              <input type="text" placeholder="Cerca o inizia una nuova chat" />
             </div>
             <!-- CONTACTS LIST -->
             <div class="contacts-list">
-              <div v-for="contact in contacts">
-                <div class="contact-info">
+              <div v-for="(contact, index) in contacts">
+                <div @click="userData.currentChat=index" class="contact-info" :class="{'current-contact ' : userData.currentChat===index}">
                   <img
                     class="avatar"
                     :src="imageLocation+contact.avatar+imageFormat"
@@ -82,13 +88,12 @@
             <!-- CONTACT INFO -->
             <div class="current-contact">
               <div class="current-contact-info">
-                <!-- TEMPORANEAMENTE PRENDO IL PRIMO DELL'ARRAY -->
                 <img
                   class="avatar"
-                  :src="imageLocation+contacts[0].avatar+imageFormat"
-                  :alt="contacts[0].name"
+                  :src="imageLocation+contacts[userData.currentChat].avatar+imageFormat"
+                  :alt="contacts[userData.currentChat].name"
                 />
-                <span>{{contacts[0].name}}</span>
+                <span>{{contacts[userData.currentChat].name}}</span>
               </div>
               <div class="user-cmd ico-cmd">
                 <i class="fas fa-circle-notch"></i>
@@ -98,8 +103,7 @@
             </div>
             <!-- CURRENT CONTACT CHAT MESSAGES -->
             <div class="current-chat">
-              <!-- PRENDO TEMPORANEAMENTE I MESSAGGI DELLA PRIMA CHAT NELL'ARRAY -->
-              <div v-for="(message, index) in contacts[0].messages">
+              <div v-for="(message, index) in contacts[userData.currentChat].messages">
                 <div class="row">
                   <div :class="message.status==='sent' ? 'sent': 'received'">
                     <p>{{message.text}}</p>
@@ -114,7 +118,7 @@
                 <i class="far fa-smile"></i>
               </div>
               <div class="write-message">
-                  <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" />
               </div>
               <div class="record-audio">
                 <i class="fas fa-microphone"></i>
