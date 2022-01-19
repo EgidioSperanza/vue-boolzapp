@@ -94,5 +94,7 @@ new Vue({
     imageLocation:"./img/avatar",
     imageFormat:".jpg",
   },
-  methods: {},
+  methods: {
+    
+  },
 });
