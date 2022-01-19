@@ -29,6 +29,10 @@ html {
 span:not(.opt-text > span) {
   margin-left: 10px;
 }
+span.last-access{
+    display: block;
+    font-size: 12px;
+}
 /* END FORMAT SPAN */
 /* START RESIZING USER & CONTACTS AVATAR */
 img.avatar {
@@ -144,6 +148,9 @@ img.avatar {
   text-align: center;
   font-size: 25px;
 }
+.focus-search{
+    color: #9fd8f8;
+}
 .search-chat > input {
   width: 100%;
   border: 0;
@@ -168,9 +175,10 @@ img.avatar {
   display: flex;
   align-items: center;
 }
-.contact-info:hover {
+.contact-info:hover, .current-interlocutor {
   background-color: #dbdbd4;
 }
+
 /* END CONTACTS LIST */
 /* END USER PANEL */
 /* START CHAT PANEL */

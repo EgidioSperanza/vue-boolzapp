@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="./css/style.css" />
     <!-- ----CND VUE---- -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- ----DAY.JS---- -->
+    <script src="./js/dayjs.min.js"></script>
   </head>
   <body>
     <div id="app">
@@ -65,14 +67,14 @@
             <!-- SEARCH CHAT -->
             <div class="search-chat">
               <div class="search-icon">
-                <i class="fas fa-search"></i>
+                <i :class="{'focus-search' : searchContacts!==''}" class="fas fa-search"></i>
               </div>
-              <input type="text" placeholder="Cerca o inizia una nuova chat" />
+              <input v-model="searchContacts" type="text" placeholder="Cerca o inizia una nuova chat" />
             </div>
             <!-- CONTACTS LIST -->
             <div class="contacts-list">
-              <div v-for="(contact, index) in contacts">
-                <div @click="userData.currentChat=index" class="contact-info" :class="{'current-contact ' : userData.currentChat===index}">
+              <div v-if="searchContacts===''" v-for="(contact, index) in contacts">
+                <div @click="userData.currentChat=index" class="contact-info" :class="{'current-interlocutor' : userData.currentChat===index}">
                   <img
                     class="avatar"
                     :src="imageLocation+contact.avatar+imageFormat"
@@ -93,7 +95,10 @@
                   :src="imageLocation+contacts[userData.currentChat].avatar+imageFormat"
                   :alt="contacts[userData.currentChat].name"
                 />
-                <span>{{contacts[userData.currentChat].name}}</span>
+                <div>
+                    <span>{{contacts[userData.currentChat].name}}</span>
+                    <span class="last-access">{{lastAccess()}}</span>
+                </div>
               </div>
               <div class="user-cmd ico-cmd">
                 <i class="fas fa-circle-notch"></i>
@@ -118,7 +123,7 @@
                 <i class="far fa-smile"></i>
               </div>
               <div class="write-message">
-                <input v-model="newMessage" @keyup.enter="sendMessage(userData.currentChat)" type="text" placeholder="Scrivi un messaggio" />
+                <input v-model="newMessage" @keyup.enter="sendMessage" type="text" placeholder="Scrivi un messaggio" />
               </div>
               <div class="record-audio">
                 <i class="fas fa-microphone"></i>
