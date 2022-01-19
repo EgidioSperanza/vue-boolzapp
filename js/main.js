@@ -97,7 +97,7 @@ new Vue({
     imageFormat: ".jpg",
     newMessage: "",
     searchContacts: "",
-    filteredContacts:"",
+    filteredContacts: "",
   },
   methods: {
     notificationOpt: function () {
@@ -121,12 +121,16 @@ new Vue({
     lastAccess: function () {
       return `Ultimo accesso alle ${dayjs().format("HH:mm")}`;
     },
-    filterContacts(element){
-      if(this.searchContacts!==""){
-        return  element.name.toUpperCase().startsWith(this.searchContacts.toUpperCase())
+    filterContacts(element) {
+      if (
+        element.name
+          .toUpperCase()
+          .startsWith(this.searchContacts.toUpperCase()) ||
+        this.searchContacts === ""
+      ) {
+        return true;
       }
-      else{
-        return element.name
-      }
-  } },
+      return false;
+    },
+  },
 });
