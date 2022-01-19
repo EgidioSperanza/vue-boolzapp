@@ -95,10 +95,18 @@ new Vue({
     },
     imageLocation: "./img/avatar",
     imageFormat: ".jpg",
+    newMessage:""
   },
   methods: {
     notificationOpt: function () {
       this.userData.notifications=!this.userData.notifications;
     },
+    sendMessage: function (i){
+      this.contacts[i].messages.push({date:"10/01/2020 15:30:55", text:this.newMessage,status:"sent" })
+      this.newMessage="";
+      setTimeout( () => {
+        this.contacts[i].messages.push({date:"10/01/2020 15:30:55", text:"ok",status:"received" })
+      }, 1000);
+    }
   },
 });

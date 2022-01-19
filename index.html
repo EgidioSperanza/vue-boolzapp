@@ -118,7 +118,7 @@
                 <i class="far fa-smile"></i>
               </div>
               <div class="write-message">
-                <input type="text" placeholder="Scrivi un messaggio" />
+                <input v-model="newMessage" @keyup.enter="sendMessage(userData.currentChat)" type="text" placeholder="Scrivi un messaggio" />
               </div>
               <div class="record-audio">
                 <i class="fas fa-microphone"></i>
