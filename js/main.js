@@ -121,5 +121,7 @@ new Vue({
     lastAccess: function () {
       return `Ultimo accesso alle ${dayjs().format("HH:mm")}`;
     },
- },
+    filterContacts(element){
+      return  element.name.toUpperCase().startsWith(this.searchContacts.toUpperCase())
+  } },
 });

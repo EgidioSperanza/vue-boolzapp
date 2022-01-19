@@ -204,6 +204,12 @@ img.avatar {
   float: right;
   background-color: #ddf8c0;
 }
+.sent > p::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f078";
+  float: right;
+}
 .received {
   float: left;
   background-color: #fff;

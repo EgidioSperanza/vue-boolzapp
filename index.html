@@ -73,8 +73,8 @@
             </div>
             <!-- CONTACTS LIST -->
             <div class="contacts-list">
-              <div v-if="searchContacts===''" v-for="(contact, index) in contacts">
-                <div @click="userData.currentChat=index" class="contact-info" :class="{'current-interlocutor' : userData.currentChat===index}">
+              <div v-for="(contact, index) in contacts">
+                <div v-if="filterContacts(contact)" @click="userData.currentChat=index" class="contact-info" :class="{'current-interlocutor' : userData.currentChat===index}">
                   <img
                     class="avatar"
                     :src="imageLocation+contact.avatar+imageFormat"
