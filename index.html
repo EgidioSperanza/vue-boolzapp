@@ -83,16 +83,6 @@
                   <span>{{contact.name}}</span>
                 </div>
               </div>
-              <div v-else v-for="(contact, index) in filteredContacts">
-                <div @click="userData.currentChat=index" class="contact-info" :class="{'current-interlocutor' : userData.currentChat===index}">
-                  <img
-                    class="avatar"
-                    :src="imageLocation+contact.avatar+imageFormat"
-                    :alt="contact.name"
-                  />
-                  <span>{{contact.name}}</span>
-                </div>
-              </div>
             </div>
           </div>
           <!-- CHAT PANEL -->
