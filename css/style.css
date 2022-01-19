@@ -18,6 +18,11 @@ html {
   clear: both;
 }
 /* END FLOAT UTILITY */
+/* START CURSOR POINTER ASSIGNMENT */
+.opt-bell, .opt-text:last-child{
+    cursor: pointer;
+}
+/* END CURSOR POINTER ASSIGNMENT */
 /* START FORMAT SPAN */
 span:not(.opt-text > span) {
   margin-left: 10px;

@@ -86,15 +86,18 @@ new Vue({
         ],
       },
     ],
-    userData:{
-        name:'John Doe',
-        avatar: "_8",
-        visible: true,
+    userData: {
+      name: "John Doe",
+      avatar: "_8",
+      visible: true,
+      notifications: false,
     },
-    imageLocation:"./img/avatar",
-    imageFormat:".jpg",
+    imageLocation: "./img/avatar",
+    imageFormat: ".jpg",
   },
   methods: {
-    
+    notificationOpt: function () {
+      this.userData.notifications=!this.userData.notifications;
+    },
   },
 });
