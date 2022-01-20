@@ -168,6 +168,7 @@ new Vue({
         text: this.newMessage,
         status: "sent",
       });
+      this.targetDelete="";
       this.newMessage = "";
       setTimeout(() => {
         this.contacts[this.userData.currentChat].messages.push({
