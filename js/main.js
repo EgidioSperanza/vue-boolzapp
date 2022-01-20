@@ -136,6 +136,7 @@ new Vue({
     },
     newMessage: "",
     searchContacts: "",
+    lastAccessTime: "",
     showDeleteModal: false,
     targetDelete:null
   },
@@ -162,7 +163,16 @@ new Vue({
       }, 1000);
     },
     lastAccess: function () {
-      return `Ultimo accesso alle ${dayjs().format("HH:mm")}`;
+      let contact = this.contacts[this.userData.currentChat];
+      if (contact.messages.length>0){
+        this.lastAccessTime = dayjs(contact.messages[contact.messages.length-1].date).format("HH:mm");
+        return `Ultimo accesso alle ${this.lastAccessTime}`;
+      }else{
+        return `Ultimo accesso Sconosciuto`
+      }
+      // console.log(contact.messages.length-1)
+      // console.log(this.lastAccessTime);
+      // this.lastAccessTime= "";
     },
     filterContacts(element) {
       if (
