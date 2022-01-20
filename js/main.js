@@ -85,7 +85,8 @@ new Vue({
           },
           {
             date: "10/01/2022 18:30:55",
-            text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id debitis consequuntur deleniti vitae rerum fugit itaque nesciunt, dolore amet! Facere accusamus repudiandae labore incidunt ducimus corrupti nemo, quisquam ipsum impedit!",
+            text:
+              "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id debitis consequuntur deleniti vitae rerum fugit itaque nesciunt, dolore amet! Facere accusamus repudiandae labore incidunt ducimus corrupti nemo, quisquam ipsum impedit!",
             status: "sent",
           },
         ],
@@ -94,37 +95,37 @@ new Vue({
         name: "Dario",
         avatar: "_4",
         visible: true,
-        messages: []
+        messages: [],
       },
       {
         name: "Michele",
         avatar: "_1",
         visible: true,
-        messages: []
+        messages: [],
       },
       {
         name: "Mario",
         avatar: "_7",
         visible: true,
-        messages: []
+        messages: [],
       },
       {
         name: "Giovanna",
         avatar: "_6",
         visible: true,
-        messages: []
+        messages: [],
       },
       {
         name: "Maria",
         avatar: "_io",
         visible: true,
-        messages: []
+        messages: [],
       },
       {
         name: "Federico",
         avatar: "_4",
         visible: true,
-        messages: []
+        messages: [],
       },
     ],
     userData: {
@@ -138,14 +139,25 @@ new Vue({
     searchContacts: "",
     lastAccessTime: "",
     showDeleteModal: false,
-    targetDelete:null
+    targetDelete: null,
   },
   methods: {
-    getAvatarImgAddress: function(contact){
+    getAvatarImgAddress: function (contact) {
       return `./img/avatar${contact.avatar}.jpg`;
     },
     notificationOpt: function () {
       this.userData.notifications = !this.userData.notifications;
+    },
+    lastAccess: function () {
+      let contact = this.contacts[this.userData.currentChat];
+      if (contact.messages.length > 0) {
+        this.lastAccessTime = contact.messages[
+          contact.messages.length - 1
+        ].date.substr(11, 5);
+        return `Ultimo accesso alle ${this.lastAccessTime}`;
+      } else {
+        return `Ultimo accesso Sconosciuto`;
+      }
     },
     sendMessage: function () {
       this.contacts[this.userData.currentChat].messages.push({
@@ -161,18 +173,7 @@ new Vue({
           status: "received",
         });
       }, 1000);
-    },
-    lastAccess: function () {
-      let contact = this.contacts[this.userData.currentChat];
-      if (contact.messages.length>0){
-        this.lastAccessTime = dayjs(contact.messages[contact.messages.length-1].date).format("HH:mm");
-        return `Ultimo accesso alle ${this.lastAccessTime}`;
-      }else{
-        return `Ultimo accesso Sconosciuto`
-      }
-      // console.log(contact.messages.length-1)
-      // console.log(this.lastAccessTime);
-      // this.lastAccessTime= "";
+      this.lastAccess();
     },
     filterContacts(element) {
       if (
@@ -185,17 +186,18 @@ new Vue({
       }
       return false;
     },
-    deleteMessage: function (message, index ,contact){
-      this.showDeleteModal=false;
-      this.targetDelete=null;
-      if(message.status==='sent' && this.showDeleteModal===false){
-        this.showDeleteModal=!this.showDeleteModal;
-        this.targetDelete=`${this.contacts[contact].name.toLowerCase()}_${index}`;
+    deleteMessage: function (message, index, contact) {
+      this.showDeleteModal = false;
+      this.targetDelete = null;
+      if (message.status === "sent" && this.showDeleteModal === false) {
+        this.showDeleteModal = !this.showDeleteModal;
+        this.targetDelete = `${this.contacts[
+          contact
+        ].name.toLowerCase()}_${index}`;
       }
-      console.log(message.status)
-      console.log(this.showDeleteModal)
-      console.log(this.targetDelete)
-
-    }
+      console.log(message.status);
+      console.log(this.showDeleteModal);
+      console.log(this.targetDelete);
+    },
   },
 });

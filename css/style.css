@@ -226,7 +226,11 @@ img.avatar {
   float: right;
 }
 /* START DELETE MESSAGE */
-
+.delete-message {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
 /* END DELETE MESSAGE */
 /* END MESSAGE SENT OR RECEIVED */
 /* END CURRENT CHAT MESSAGE HISTORY */
