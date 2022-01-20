@@ -134,14 +134,15 @@ new Vue({
       notifications: false,
       currentChat: 0,
     },
-    imageLocation: "./img/avatar",
-    imageFormat: ".jpg",
     newMessage: "",
     searchContacts: "",
     showDeleteModal: false,
     targetDelete:null
   },
   methods: {
+    getAvatarImgAddress: function(contact){
+      return `./img/avatar${contact.avatar}.jpg`;
+    },
     notificationOpt: function () {
       this.userData.notifications = !this.userData.notifications;
     },

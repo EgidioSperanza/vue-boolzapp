@@ -21,11 +21,6 @@
   </head>
   <body>
     <div id="app">
-      <!-- BACKGROUND -->
-      <div class="boolzapp-bkg">
-        <div class="bkg-head"></div>
-        <div class="bkg-body"></div>
-      </div>
       <!-- MAIN WINDOW -->
       <div class="boolzapp-app">
         <div class="row">
@@ -36,7 +31,7 @@
               <div class="user-info">
                 <img
                   class="avatar"
-                  :src="imageLocation+userData.avatar+imageFormat"
+                  :src="getAvatarImgAddress(userData)"
                   :alt="userData.name"
                 />
                 <span>{{userData.name}}</span>
@@ -89,7 +84,7 @@
                 >
                   <img
                     class="avatar"
-                    :src="imageLocation+contact.avatar+imageFormat"
+                    :src="getAvatarImgAddress(contact)"
                     :alt="contact.name"
                   />
                   <span>{{contact.name}}</span>
@@ -104,7 +99,7 @@
               <div class="current-contact-info">
                 <img
                   class="avatar"
-                  :src="imageLocation+contacts[userData.currentChat].avatar+imageFormat"
+                  :src="getAvatarImgAddress(contacts[userData.currentChat])"
                   :alt="contacts[userData.currentChat].name"
                 />
                 <div>
@@ -126,7 +121,7 @@
                 <div class="row">
                   <div
                     @click="deleteMessage(message, index, userData.currentChat)"
-                    :class="message.status==='sent' ? 'sent': 'received'"
+                    :class="message.status"
                   >
                     <!-- DELETE SENT MESSAGE -->
                     <div v-if="showDeleteModal && targetDelete!==null" :id="targetDelete" class="delete-message"></div>
