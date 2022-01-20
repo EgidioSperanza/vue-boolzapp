@@ -78,7 +78,7 @@
               <div v-for="(contact, index) in contacts">
                 <div
                   v-if="filterContacts(contact)"
-                  @click="userData.currentChat=index"
+                  @click="changeContactChat(index)"
                   class="contact-info"
                   :class="{'current-interlocutor' : userData.currentChat===index}"
                 >
@@ -120,11 +120,14 @@
               >
                 <div class="row">
                   <div
-                    @click="deleteMessage(message, index, userData.currentChat)"
+                    @click="ModalDeleteMessage(message, index)"
                     :class="message.status"
                   >
                     <!-- DELETE SENT MESSAGE -->
-                    <div v-if="showDeleteModal && targetDelete===index" class="delete-message"></div>
+                    <div v-if="targetDelete===index" class="delete-message">
+                      <p>Message info</p>
+                      <p @click="deleteMessage(index)">Delete Message</p>
+                    </div>
                     <p>{{message.text}}</p>
                     <span>{{message.date}}</span>
                     <i

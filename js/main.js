@@ -138,8 +138,7 @@ new Vue({
     newMessage: "",
     searchContacts: "",
     lastAccessTime: "",
-    showDeleteModal: false,
-    targetDelete: null,
+    targetDelete: "",
   },
   methods: {
     getAvatarImgAddress: function (contact) {
@@ -147,6 +146,10 @@ new Vue({
     },
     notificationOpt: function () {
       this.userData.notifications = !this.userData.notifications;
+    },
+    changeContactChat: function (index){
+      this.userData.currentChat=index;
+      this.targetDelete="";
     },
     lastAccess: function () {
       let contact = this.contacts[this.userData.currentChat];
@@ -186,18 +189,15 @@ new Vue({
       }
       return false;
     },
-    deleteMessage: function (message, index, contact) {
-      this.showDeleteModal = false;
-      this.targetDelete = null;
-      if (message.status === "sent" && this.showDeleteModal === false) {
-        this.showDeleteModal = !this.showDeleteModal;
-        this.targetDelete = `${this.contacts[
-          contact
-        ].name.toLowerCase()}_${index}`;
+    ModalDeleteMessage: function (message, index) {
+      if (message.status === "sent" && this.targetDelete==="") {
+        return this.targetDelete = index;
       }
-      console.log(message.status);
-      console.log(this.showDeleteModal);
-      console.log(this.targetDelete);
+      return this.targetDelete= ""
+    },
+    deleteMessage: function (index) {
+      this.contacts[this.userData.currentChat].messages.splice(index,1)
+      this.targetDelete = "";
     },
   },
 });

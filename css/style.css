@@ -228,8 +228,14 @@ img.avatar {
 /* START DELETE MESSAGE */
 .delete-message {
   width: 200px;
-  height: 200px;
-  background-color: red;
+  height: 100px;
+  position:absolute;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #C0C0C0;
 }
 /* END DELETE MESSAGE */
 /* END MESSAGE SENT OR RECEIVED */
