@@ -125,11 +125,11 @@
               >
                 <div class="row">
                   <div
-                    @click="deleteMessage(message, index)"
+                    @click="deleteMessage(message, index, userData.currentChat)"
                     :class="message.status==='sent' ? 'sent': 'received'"
                   >
                     <!-- DELETE SENT MESSAGE -->
-                    <div v-if="showDeleteModal" :id="targetDelete" class="delete-message"></div>
+                    <div v-if="showDeleteModal && targetDelete!==null" :id="targetDelete" class="delete-message"></div>
                     <p>{{message.text}}</p>
                     <span>{{message.date}}</span>
                     <i
@@ -146,12 +146,12 @@
                 <i class="far fa-smile"></i>
               </div>
               <div class="write-message">
-                <input
+                <textarea
                   v-model="newMessage"
                   @keyup.enter="sendMessage"
                   type="text"
                   placeholder="Scrivi un messaggio"
-                />
+                /></textarea>
               </div>
               <div class="record-audio">
                 <i class="fas fa-microphone"></i>

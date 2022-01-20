@@ -174,12 +174,12 @@ new Vue({
       }
       return false;
     },
-    deleteMessage: function (message, index){
+    deleteMessage: function (message, index ,contact){
       this.showDeleteModal=false;
       this.targetDelete=null;
       if(message.status==='sent' && this.showDeleteModal===false){
         this.showDeleteModal=!this.showDeleteModal;
-        this.targetDelete=index;
+        this.targetDelete=`${this.contacts[contact].name.toLowerCase()}_${index}`;
       }
       console.log(message.status)
       console.log(this.showDeleteModal)
