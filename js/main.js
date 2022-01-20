@@ -199,6 +199,7 @@ new Vue({
     deleteMessage: function (index) {
       this.contacts[this.userData.currentChat].messages.splice(index,1)
       this.targetDelete = "";
+      this.ModalDeleteMessage (message, index)
     },
   },
 });
